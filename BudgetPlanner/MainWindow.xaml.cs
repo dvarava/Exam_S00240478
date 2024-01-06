@@ -22,9 +22,31 @@ namespace BudgetPlanner
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<BudgetItem> IncomeItems = new List<BudgetItem>();
+        List<BudgetItem> ExpenseItems = new List<BudgetItem>();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        // On window loaded method
+        private void GetData(object sender, RoutedEventArgs e)
+        {
+            DateTime after3MonthDate = DateTime.Now.AddMonths(5);
+
+            BudgetItem b1 = new BudgetItem() { Name = "Grant", Date = DayOfMonth(5), Amount = 300, Reccuring = true, BudgetItemType = ItemType.Income };
+
+            IncomeItems.Add(b1);
+
+            IncomeItems.Sort();
+            lbxIncome.ItemsSource = IncomeItems;
+        }
+
+        public DateTime DayOfMonth(int day)
+        {
+            DateTime dateTime = DateTime.Now;
+            return new DateTime(dateTime.Year, dateTime.Month, day);
         }
     }
 }

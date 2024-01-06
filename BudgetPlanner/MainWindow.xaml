@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BudgetPlanner"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="681">
+        Title="MainWindow" Height="450" Width="681" Loaded="GetData">
     <Grid>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="38,87,483,152"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="248,87,273,152"/>
+        <ListBox x:Name="lbxIncome" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="38,87,453,152"/>
+        <ListBox x:Name="lbxExpenses" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="248,87,243,152"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,55,0,0" TextWrapping="Wrap" Text="Income" FontSize="20px" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="248,55,0,0" TextWrapping="Wrap" Text="Expenses" FontSize="20px" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,305,0,0" TextWrapping="Wrap" Text="Total Income" VerticalAlignment="Top"/>
@@ -28,8 +28,7 @@
         <RadioButton Content="Income" HorizontalAlignment="Left" Margin="465,194,0,0" FontSize="10px" VerticalAlignment="Top"/>
         <RadioButton Content="Expense" HorizontalAlignment="Left" Margin="564,194,0,0" FontSize="10px" VerticalAlignment="Top"/>
         <CheckBox Content="Reccuring" HorizontalAlignment="Left" Margin="465,227,0,0" FontSize="10px" VerticalAlignment="Top" RenderTransformOrigin="0.473,0.48"/>
-        <Button Content="Remove" HorizontalAlignment="Left" Margin="497,269,0,0" FontSize="10px" VerticalAlignment="Top" Width="50
-                "/>
+        <Button Content="Remove" HorizontalAlignment="Left" Margin="497,269,0,0" FontSize="10px" VerticalAlignment="Top" Width="50"/>
         <Button Content="Add" HorizontalAlignment="Left" Margin="578,269,0,0" FontSize="10px" VerticalAlignment="Top" Width="50"/>
     </Grid>
 </Window>

@@ -21,10 +21,20 @@ namespace BudgetPlanner
         public DateTime Date { get; set; }
         public bool Reccuring { get; set; }
 
+        // Method to display Reccuring text
+        public string GetReccuringText(bool isReccuring)
+        {
+            if (isReccuring)
+            {
+                return "Reccuring";
+            }
+            return "One Off";
+        }
+
         // Display format
         public override string ToString()
         {
-            return $"{Date.Day} : {Name} {Amount} - ({Reccuring})";
+            return $"{Date.Day} : {Name} €{Amount} - ({GetReccuringText(Reccuring)})";
         }
 
         // Sort by day of the month
