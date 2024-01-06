@@ -70,6 +70,7 @@ namespace BudgetPlanner
             return new DateTime(dateTime.Year, dateTime.Month, day);
         }
 
+        // Add item
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             BudgetItem newBugetItem = new BudgetItem();
@@ -104,6 +105,7 @@ namespace BudgetPlanner
             CalculateTotals();
         }
 
+        // Remove item
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
             BudgetItem selectedIncomeItem = lbxIncome.SelectedItem as BudgetItem;
@@ -124,6 +126,7 @@ namespace BudgetPlanner
             }
         }
 
+        // Method to calcuulate and update total values
         public void CalculateTotals()
         {
             decimal totalIncome = 0;
@@ -145,6 +148,45 @@ namespace BudgetPlanner
             tblkTotalIncome.Text = "€" + totalIncome.ToString();
             tblkTotalOutgoings.Text = "€" + totalExpenses.ToString();
             tblkCurrentBalance.Text = "€" + currentBalance.ToString();
+        }
+
+        // Method to allow user to search for items
+        private void tbxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            List<BudgetItem> searchedIncomeItems = new List<BudgetItem>();
+            List<BudgetItem> searchedExpenseItems = new List<BudgetItem>();
+
+            foreach (BudgetItem item in IncomeItems)
+            {
+                if (tbxSearch.Text == item.Name)
+                {
+                    searchedIncomeItems.Add(item);
+                    lbxIncome.ItemsSource = null;
+                    lbxIncome.ItemsSource = searchedIncomeItems;
+                }
+
+                if (tbxSearch.Text == "")
+                {
+                    lbxIncome.ItemsSource = null;
+                    lbxIncome.ItemsSource = IncomeItems;
+                }
+            }
+
+            foreach (BudgetItem item in ExpenseItems)
+            {
+                if (tbxSearch.Text == item.Name)
+                {
+                    searchedExpenseItems.Add(item);
+                    lbxExpenses.ItemsSource = null;
+                    lbxExpenses.ItemsSource = searchedExpenseItems;
+                }
+
+                if (tbxSearch.Text == "")
+                {
+                    lbxExpenses.ItemsSource = null;
+                    lbxExpenses.ItemsSource = ExpenseItems;
+                }
+            }
         }
     }
 }
