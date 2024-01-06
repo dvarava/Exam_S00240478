@@ -102,7 +102,20 @@ namespace BudgetPlanner
 
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
+            BudgetItem selectedIncomeItem = lbxIncome.SelectedItem as BudgetItem;
+            BudgetItem selectedExpenseItem = lbxExpenses.SelectedItem as BudgetItem;
 
+            // Update listboxes content
+            if (selectedIncomeItem != null || selectedExpenseItem != null)
+            {
+                IncomeItems.Remove(selectedIncomeItem);
+                ExpenseItems.Remove(selectedExpenseItem);
+
+                lbxIncome.ItemsSource = null;
+                lbxIncome.ItemsSource = IncomeItems;
+                lbxExpenses.ItemsSource = null;
+                lbxExpenses.ItemsSource = ExpenseItems;
+            }
         }
     }
 }
