@@ -21,6 +21,11 @@ namespace BudgetPlanner
         public DateTime Date { get; set; }
         public bool Reccuring { get; set; }
 
+        // Display format
+        public override string ToString()
+        {
+            return $"{Date.Day} : {Name} {Amount} - ({Reccuring})";
+        }
 
         // Sort by day of the month
         public int CompareTo(BudgetItem other)
