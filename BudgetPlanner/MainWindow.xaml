@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="681" Loaded="GetData">
     <Grid>
-        <ListBox x:Name="lbxIncome" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="38,87,453,152"/>
-        <ListBox x:Name="lbxExpenses" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="248,87,243,152"/>
+        <ListBox x:Name="lbxIncome" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="38,87,443,152"/>
+        <ListBox x:Name="lbxExpenses" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="248,87,233,152"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,55,0,0" TextWrapping="Wrap" Text="Income" FontSize="20px" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="248,55,0,0" TextWrapping="Wrap" Text="Expenses" FontSize="20px" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,305,0,0" TextWrapping="Wrap" Text="Total Income" VerticalAlignment="Top"/>
@@ -20,15 +20,15 @@
         <TextBlock HorizontalAlignment="Left" Margin="254,305,0,0" TextWrapping="Wrap" Text="Total Outgoings" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="371,305,0,0" TextWrapping="Wrap" Text="700" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="465,88,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="518,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbxName" HorizontalAlignment="Left" Margin="518,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="465,121,0,0" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="518,117,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.495,0.24"/>
+        <DatePicker x:Name="dpDate" HorizontalAlignment="Left" Margin="518,117,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.495,0.24"/>
         <TextBlock HorizontalAlignment="Left" Margin="465,155,0,0" TextWrapping="Wrap" Text="Amount" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="518,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <RadioButton Content="Income" HorizontalAlignment="Left" Margin="465,194,0,0" FontSize="10px" VerticalAlignment="Top"/>
-        <RadioButton Content="Expense" HorizontalAlignment="Left" Margin="564,194,0,0" FontSize="10px" VerticalAlignment="Top"/>
-        <CheckBox Content="Reccuring" HorizontalAlignment="Left" Margin="465,227,0,0" FontSize="10px" VerticalAlignment="Top" RenderTransformOrigin="0.473,0.48"/>
-        <Button Content="Remove" HorizontalAlignment="Left" Margin="497,269,0,0" FontSize="10px" VerticalAlignment="Top" Width="50"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="578,269,0,0" FontSize="10px" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="tbxAmount" HorizontalAlignment="Left" Margin="518,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <RadioButton x:Name="rbIncome" Content="Income" HorizontalAlignment="Left" Margin="465,194,0,0" FontSize="10px" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbExpense" Content="Expense" HorizontalAlignment="Left" Margin="564,194,0,0" FontSize="10px" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbReccuring" Content="Reccuring" HorizontalAlignment="Left" Margin="465,227,0,0" FontSize="10px" VerticalAlignment="Top" RenderTransformOrigin="0.473,0.48"/>
+        <Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" Margin="497,269,0,0" FontSize="10px" VerticalAlignment="Top" Width="50" Click="btnRemove_Click"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="578,269,0,0" FontSize="10px" VerticalAlignment="Top" Width="50" Click="btnAdd_Click"/>
     </Grid>
 </Window>

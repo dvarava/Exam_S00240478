@@ -41,7 +41,7 @@ namespace BudgetPlanner
         public int CompareTo(BudgetItem other)
         {
             if (other == null) return 1;
-            return other.Date.CompareTo(this.Date);
+            return this.Date.Day.CompareTo(other.Date.Day);
         }
     }
 }

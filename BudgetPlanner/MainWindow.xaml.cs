@@ -33,20 +33,76 @@ namespace BudgetPlanner
         // On window loaded method
         private void GetData(object sender, RoutedEventArgs e)
         {
-            DateTime after3MonthDate = DateTime.Now.AddMonths(5);
+            // Initialize objects
+            BudgetItem b1 = new BudgetItem() { Name = "Grant", Date = DayOfMonth(5), Amount = 300.00m, Reccuring = true, BudgetItemType = ItemType.Income };
+            BudgetItem b2 = new BudgetItem() { Name = "Bonus", Date = DayOfMonth(15), Amount = 300.00m, Reccuring = false, BudgetItemType = ItemType.Income };
+            BudgetItem b3 = new BudgetItem() { Name = "Wages", Date = DayOfMonth(25), Amount = 100.00m, Reccuring = true, BudgetItemType = ItemType.Income };
 
-            BudgetItem b1 = new BudgetItem() { Name = "Grant", Date = DayOfMonth(5), Amount = 300, Reccuring = true, BudgetItemType = ItemType.Income };
+            BudgetItem b4 = new BudgetItem() { Name = "Rent", Date = DayOfMonth(1), Amount = 400.00m, Reccuring = true, BudgetItemType = ItemType.Expense };
+            BudgetItem b5 = new BudgetItem() { Name = "Flight", Date = DayOfMonth(5), Amount = 100.00m, Reccuring = false, BudgetItemType = ItemType.Expense };
+            BudgetItem b6 = new BudgetItem() { Name = "Netflix", Date = DayOfMonth(15), Amount = 10.00m, Reccuring = true, BudgetItemType = ItemType.Expense };
+            BudgetItem b7 = new BudgetItem() { Name = "Spotify", Date = DayOfMonth(20), Amount = 8.00m, Reccuring = true, BudgetItemType = ItemType.Expense };
 
+            // Add objects to a list
             IncomeItems.Add(b1);
+            IncomeItems.Add(b2);
+            IncomeItems.Add(b3);
+            ExpenseItems.Add(b4);
+            ExpenseItems.Add(b5);
+            ExpenseItems.Add(b6);
+            ExpenseItems.Add(b7);
 
+            // Sort the lists
             IncomeItems.Sort();
+            ExpenseItems.Sort();
+
+            // Add items to the listboxes
             lbxIncome.ItemsSource = IncomeItems;
+            lbxExpenses.ItemsSource = ExpenseItems;
         }
 
+        // Method to create day of the month
         public DateTime DayOfMonth(int day)
         {
             DateTime dateTime = DateTime.Now;
             return new DateTime(dateTime.Year, dateTime.Month, day);
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            BudgetItem newBugetItem = new BudgetItem();
+            newBugetItem.Name = tbxName.Text;
+            newBugetItem.Date = dpDate.SelectedDate.Value;
+            newBugetItem.Amount = decimal.Parse(tbxAmount.Text);
+
+            if (cbReccuring.IsChecked == true)
+            {
+                newBugetItem.Reccuring = true;
+            }
+            else
+            {
+                newBugetItem.Reccuring = false;
+            }
+
+            if (rbIncome.IsChecked == true)
+            {
+                IncomeItems.Add(newBugetItem);
+            }
+            if (rbExpense.IsChecked == true)
+            {
+                ExpenseItems.Add(newBugetItem);
+            }
+
+            // Update listboxes content
+            lbxIncome.ItemsSource = null;
+            lbxExpenses.ItemsSource = null;
+            lbxIncome.ItemsSource = IncomeItems;
+            lbxExpenses.ItemsSource = ExpenseItems;
+        }
+
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
