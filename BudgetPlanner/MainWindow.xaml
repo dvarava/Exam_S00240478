@@ -12,13 +12,13 @@
         <TextBlock HorizontalAlignment="Left" Margin="38,55,0,0" TextWrapping="Wrap" Text="Income" FontSize="20px" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="248,55,0,0" TextWrapping="Wrap" Text="Expenses" FontSize="20px" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,305,0,0" TextWrapping="Wrap" Text="Total Income" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="155,305,0,0" TextWrapping="Wrap" Text="700" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tblkTotalIncome" HorizontalAlignment="Left" Margin="155,305,0,0" TextWrapping="Wrap" Text="700" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,339,0,0" TextWrapping="Wrap" Text="Current Balance" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="155,339,0,0" TextWrapping="Wrap" Text="700" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.999"/>
+        <TextBlock x:Name="tblkCurrentBalance" HorizontalAlignment="Left" Margin="155,339,0,0" TextWrapping="Wrap" Text="700" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.999"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,374,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="118,373,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="254,305,0,0" TextWrapping="Wrap" Text="Total Outgoings" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="371,305,0,0" TextWrapping="Wrap" Text="700" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tblkTotalOutgoings" HorizontalAlignment="Left" Margin="371,305,0,0" TextWrapping="Wrap" Text="700" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="465,88,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
         <TextBox x:Name="tbxName" HorizontalAlignment="Left" Margin="518,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="465,121,0,0" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top"/>

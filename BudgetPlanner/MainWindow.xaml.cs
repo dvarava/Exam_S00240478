@@ -59,6 +59,8 @@ namespace BudgetPlanner
             // Add items to the listboxes
             lbxIncome.ItemsSource = IncomeItems;
             lbxExpenses.ItemsSource = ExpenseItems;
+
+            CalculateTotals();
         }
 
         // Method to create day of the month
@@ -98,6 +100,8 @@ namespace BudgetPlanner
             lbxExpenses.ItemsSource = null;
             lbxIncome.ItemsSource = IncomeItems;
             lbxExpenses.ItemsSource = ExpenseItems;
+
+            CalculateTotals();
         }
 
         private void btnRemove_Click(object sender, RoutedEventArgs e)
@@ -115,7 +119,32 @@ namespace BudgetPlanner
                 lbxIncome.ItemsSource = IncomeItems;
                 lbxExpenses.ItemsSource = null;
                 lbxExpenses.ItemsSource = ExpenseItems;
+
+                CalculateTotals();
             }
+        }
+
+        public void CalculateTotals()
+        {
+            decimal totalIncome = 0;
+            decimal totalExpenses = 0;
+            decimal currentBalance = 0;
+
+            foreach(BudgetItem item in IncomeItems)
+            {
+                totalIncome += item.Amount;
+            }
+
+            foreach (BudgetItem item in ExpenseItems)
+            {
+                totalExpenses += item.Amount;
+            }
+
+            currentBalance = totalIncome - totalExpenses;
+
+            tblkTotalIncome.Text = "€" + totalIncome.ToString();
+            tblkTotalOutgoings.Text = "€" + totalExpenses.ToString();
+            tblkCurrentBalance.Text = "€" + currentBalance.ToString();
         }
     }
 }
